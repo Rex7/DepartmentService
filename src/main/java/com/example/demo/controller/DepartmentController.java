@@ -19,17 +19,18 @@ public class DepartmentController {
 
 	@Autowired
 	DepartmentService departmentService;
-	
+
 	@PostMapping("/")
-	public Department saveDepartment( Department department) {
-		
-		Department demo= departmentService.saveDepartment(department);
+	public Department saveDepartment(Department department) {
+		log.info("saving department data called saveDepartment()");
+		Department demo = departmentService.saveDepartment(department);
 		return demo;
 	}
-	
+
 	@GetMapping("/{id}")
 	public Department getDepartmentById(@PathVariable("id") int departmentId) {
-		Department demo=  departmentService.findDepartmentById(departmentId);
+		log.info("called getDepartmentById() method ");		
+		Department demo = departmentService.findDepartmentById(departmentId);
 		return demo;
 	}
 }
